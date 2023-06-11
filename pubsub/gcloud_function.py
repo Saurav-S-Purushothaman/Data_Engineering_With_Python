@@ -27,7 +27,7 @@ def get_thumbnail(data, context ):
   newimage = Image(blob = imagedata) 
   newimage.sample(300,300)  # reducing the size of the image 
 
-  # upload the resampled image to thumbnail bucket 
+  # upload the resampled image to thumbnail bucket  
   bucket = client.get_bucket(thumbnail_bucket)
   newblob = bucket.blob(thumbnail)
   newblob.uplaod_from_string(newimage.make_blob())
