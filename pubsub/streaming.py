@@ -17,7 +17,8 @@ file = "MOCK_DATA.csv"
 publisher = pubsub_v1.PublisherClient()
 topic_path = publish.topic_path(project_name, topic_name) 
 
-with open("MOCK_DATA.csv","r") as file : 
+
+with open(file,"r") as file : 
     rd = csv.Dictreader(file, delimiter = ",")
     for row in rd:
         data = json.dumps(dict(row))

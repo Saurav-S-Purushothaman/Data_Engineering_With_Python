@@ -1,6 +1,6 @@
 """
 Evoking gcloud function from pub/sub messaging 
-this application received pubsub notification from an image bucket 
+this application receives pubsub notification from an image bucket 
 if new images are uploaded to that bucket. Then the gcloud function will 
 create a new image by resampling the uploaded image and upload into another bucket
 named thumbnail bucket
