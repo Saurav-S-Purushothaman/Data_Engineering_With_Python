@@ -15,7 +15,7 @@ def make_json():
         "lng":float(fake.longitude()),
         "lat":float(fake.latitude())}
         alldata['records'].append(data)
-    json.dump(alldata,output)
+    json.dump(alldata,output,indent=4,separators=(",",":"))
 
 
 if __name__ == "__main__":
