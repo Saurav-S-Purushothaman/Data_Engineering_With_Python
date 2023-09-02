@@ -30,23 +30,29 @@ class Postgres:
        print("Connection closed....")
 
     def execute_query(self, query,data):
-        try:
             print("Executing the query...")
             self.curr = self.conn.cursor()
-            formated_q = self.curr.mogrify(query,data)
-            self.curr.execute(formated_q)
-        except e:
-            print(f"Exception {e} occurred")
-        print("Executed query")
-
+            self.curr.executemany(query,data)
+        
 
 if __name__ == "__main__":  
+    # Connect to database
     database = Postgres()
     database.connect()
     
-    query = "insert into users (name, age) values (%s, %s)"
-    data = ("John" , 30)
-   
+    # Query for database
+    query = "insert into users (name, age, street_address,city) values (%s,%s,%s,%s)"
+    data = [] 
+
+    fake = Faker()
+    for x in range(1000):
+        tup = (fake.name(),fake.random_int
+        (min=18, max=80, step=1),
+        fake.street_address(),
+        fake.city())
+        data.append(tup)
+    
+    data = tuple(data)
     database.execute_query(query, data)
 
     database.commit()
