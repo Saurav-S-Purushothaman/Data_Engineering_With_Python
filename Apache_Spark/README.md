@@ -3,6 +3,7 @@
 - Its a unified analytic engine that allows you to process data at a huge scale in a distributed manner.
 
 <h3> Spark Architecture </h3> 
+
 - Driver Program
   - Hosts Spark context 
   - Separate process (JVM) 
@@ -14,6 +15,7 @@
     - SparkUI
 
 - Spark Application 
+
  - The code that you write
  - Use SparkContext as the entry point
  - Creates the DAG
